@@ -1,0 +1,3 @@
+libdatashit.*
+examples/*
+!examples/*.c
