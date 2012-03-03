@@ -25,7 +25,7 @@ main (int argc, char** argv)
 	printf("value has %d references\n", value->references);
 
 	ds_value_dereference(constant);
-	ds_value_unprotect(ds_value_dereference(ds_value_protect(value)));
+	ds_value_unprotect(ds_value_protect(value));
 
 	return 0;
 }

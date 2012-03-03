@@ -51,11 +51,7 @@ ds_value_unprotect (DSValue* value)
 {
 	value->protect = false;
 
-	if (value->references <= 0) {
-		return ds_value_dereference(value);
-	}
-
-	return value;
+	return ds_value_dereference(value);
 }
 
 DSValue*
