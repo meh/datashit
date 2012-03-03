@@ -30,3 +30,15 @@ ds_count_ (void* data, DSNexter nexter, void* metadata, DSCounter counter, void*
 
 	return result;
 }
+
+void*
+ds_each_ (void* data, DSNexter nexter, void* metadata, DSYielder yielder, void* metadata2)
+{
+	void* current = data;
+
+	do {
+		yielder(current, metadata2);
+	} while ((current = ds_next(current, nexter, metadata)));
+
+	return data;
+}

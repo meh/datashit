@@ -11,10 +11,10 @@
 #include <stdlib.h>
 #include "datashit/List.h"
 
-ListNode*
-cons (void* value, ListNode* data)
+DSListNode*
+cons (void* value, DSListNode* data)
 {
-	ListNode* head = malloc(sizeof(ListNode));
+	DSListNode* head = malloc(sizeof(DSListNode));
 
 	head->value = ds_value(value);
 	head->next  = data;
@@ -23,7 +23,7 @@ cons (void* value, ListNode* data)
 }
 
 void*
-car (ListNode* data)
+car (DSListNode* data)
 {
 	if (data == NULL) {
 		return NULL;
@@ -32,8 +32,8 @@ car (ListNode* data)
 	return data->value;
 }
 
-ListNode*
-cdr (ListNode* data)
+DSListNode*
+cdr (DSListNode* data)
 {
 	if (data == NULL) {
 		return NULL;
@@ -43,6 +43,6 @@ cdr (ListNode* data)
 }
 
 
-void* head (ListNode* data) __attribute__((alias("car")));
+void* head (DSListNode* data) __attribute__((alias("car")));
 
-ListNode* tail (ListNode* data) __attribute__((alias("cdr")));
+DSListNode* tail (DSListNode* data) __attribute__((alias("cdr")));

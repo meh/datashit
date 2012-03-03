@@ -19,10 +19,10 @@ main (int argc, char** argv)
 	*(int*) ds_value_get(value) = 42;
 
 	printf("constant contains %d\n", ds_value_get(constant));
-	printf("constant has %d references\n", constant->references);
+	printf("constant has %lu references\n", constant->references);
 
 	printf("value contains %d\n", *(int*) ds_value_get(value));
-	printf("value has %d references\n", value->references);
+	printf("value has %lu references\n", value->references);
 
 	ds_value_dereference(constant);
 	ds_value_unprotect(ds_value_protect(value));

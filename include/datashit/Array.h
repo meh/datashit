@@ -17,6 +17,14 @@ typedef struct DSArrayMetadata {
 } DSArrayMetadata;
 
 #define DS_ARRAY_METADATA(size) { 0, (size) }
+#define DS_ARRAY_METADATA_RESET(p) (ds_array_metadata_reset_(p))
+
+static inline DSArrayMetadata* ds_array_metadata_reset_ (DSArrayMetadata* metadata)
+{
+	metadata->current = 0;
+
+	return metadata;
+}
 
 #define DS_DEFINE_NEXTER_FOR_ARRAY_OF(type)                     \
 	type*                                                         \

@@ -10,7 +10,7 @@ end
 
 CC      = ENV['CC'] || 'clang'
 AR      = ENV['AR'] || 'ar'
-CFLAGS  = "-Os -Wall -Wextra -std=c99 -Iinclude" + " #{ENV['CFLAGS']}"
+CFLAGS  = "-Os -Wall -Wextra -Wno-unused-value -Wno-unused-parameter -std=c99 -Iinclude" + " #{ENV['CFLAGS']}"
 LDFLAGS = ENV['LDFLAGS']
 
 if ENV['DEBUG']
