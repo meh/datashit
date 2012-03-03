@@ -41,4 +41,12 @@ static inline DSArrayMetadata* ds_array_metadata_reset_ (DSArrayMetadata* metada
 
 #define DS_NEXTER_FOR_ARRAY_OF(type) _ds_next_for_ ## type
 
+#define ds_count_array_of(type, array, metadata, counter...) ((ARGS_LENGTH(counter) == 1) ? \
+	ds_count(array, DS_NEXTER_FOR_ARRAY_OF(type), DS_ARRAY_METADATA_RESET(metadata), ARGS_FIRST(counter), NULL) : \
+	ds_count(array, DS_NEXTER_FOR_ARRAY_OF(type), DS_ARRAY_METADATA_RESET(metadata), counter))
+
+#define ds_each_array_of(type, array, metadata, yielder...) ((ARGS_LENGTH(eacher) == 1) ? \
+	ds_each(array, DS_NEXTER_FOR_ARRAY_OF(type), DS_ARRAY_METADATA_RESET(metadata), ARGS_FIRST(yielder), NULL) : \
+	ds_each(array, DS_NEXTER_FOR_ARRAY_OF(type), DS_ARRAY_METADATA_RESET(metadata), yielder))
+
 #endif
