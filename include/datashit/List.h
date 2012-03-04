@@ -21,9 +21,8 @@ typedef struct DSListNode {
 
 typedef DSListNode* DSList;
 
-#define ds_cons(...) ((ARGS_LENGTH(__VA_ARGS__) == 1) ? \
-	ds_cons_((void*) ARGS_FIRST(__VA_ARGS__), NULL) : \
-	ds_cons_((void*) ARGS_FIRST(__VA_ARGS__), ARGS_SECOND(__VA_ARGS__)))
+#define ds_cons(...) \
+	ds_cons_((void*) ARGS_FIRST(__VA_ARGS__), ARGS_SECOND(__VA_ARGS__))
 
 #define ds_list(...) ds_list_(ARGS_LENGTH(__VA_ARGS__), __VA_ARGS__)
 
@@ -31,9 +30,8 @@ extern DSListNode* ds_cons_ (void* value, DSListNode* data);
 
 extern DSListNode* ds_list_ (size_t length, ...);
 
-#define ds_const_cons(...) ((ARGS_LENGTH(__VA_ARGS__) == 1) ? \
-	ds_const_cons_((void*) ARGS_FIRST(__VA_ARGS__), NULL) : \
-	ds_const_cons_((void*) ARGS_FIRST(__VA_ARGS__), ARGS_SECOND(__VA_ARGS__)))
+#define ds_const_cons(...) \
+	ds_const_cons_((void*) ARGS_FIRST(__VA_ARGS__), ARGS_SECOND(__VA_ARGS__))
 
 #define ds_const_list(...) ds_const_list_(ARGS_LENGTH(__VA_ARGS__), __VA_ARGS__)
 
@@ -59,7 +57,7 @@ extern void* ds_pop (DSListNode* data, void* value);
 
 extern DSListNode* ds_list_nexter (DSListNode* current);
 
-#define ds_count_list(list, counter...) \
-	ds_count(list, ds_list_nexter, NULL, ARGS_FIRST(counter), ARGS_SECOND(counter))
+#define ds_count_list(...) \
+	ds_count(ARGS_FIRST(__VA_ARGS__), ds_list_nexter, NULL, ARGS_SECOND(__VA_ARGS__), ARGS_THIRD(__VA_ARGS__))
 
 #endif

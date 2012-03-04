@@ -37,24 +37,30 @@
 	19, 18, 17, 16, 15, 14, 13, 12, 11, 10, \
 	 9,  8,  7,  6,  5,  4,  3,  2,  1,  0
 
-#define ARGS_NULL_SEQ \
-	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, \
-	NULL
-
 #define ARGS_FIRST(...) ARGS_FIRST_(__VA_ARGS__, ARGS_NULL_SEQ)
-#define ARGS_FIRST_(a, ...) (a)
+#define ARGS_FIRST_(...) ARGS_FIRST__(__VA_ARGS__)
+#define ARGS_FIRST__(a, ...) (a)
 
 #define ARGS_SECOND(...) ARGS_SECOND_(__VA_ARGS__, ARGS_NULL_SEQ)
-#define ARGS_SECOND_(a, b, ...) (b)
+#define ARGS_SECOND_(...) ARGS_SECOND__(__VA_ARGS__)
+#define ARGS_SECOND__(a, b, ...) (b)
 
 #define ARGS_THIRD(...) ARGS_THIRD_(__VA_ARGS__, ARGS_NULL_SEQ)
-#define ARGS_THIRD_(a, b, c, ...) (c)
+#define ARGS_THIRD_(...) ARGS_THIRD__(__VA_ARGS__)
+#define ARGS_THIRD__(a, b, c, ...) (c)
 
 #define ARGS_FOURTH(...) ARGS_FOURTH_(__VA_ARGS__, ARGS_NULL_SEQ)
-#define ARGS_FOURTH_(a, b, c, d, ...) (d)
+#define ARGS_FOURTH_(...) ARGS_FOURTH__(__VA_ARGS__)
+#define ARGS_FOURTH__(a, b, c, d, ...) (d)
 
 #define ARGS_FIFTH(...) ARGS_FIFTH_(__VA_ARGS__, ARGS_NULL_SEQ)
-#define ARGS_FIFTH_(a, b, c, d, e, ...) (e)
+#define ARGS_FIFTH_(...) ARGS_FIFTH__(__VA_ARGS__)
+#define ARGS_FIFTH__(a, b, c, d, e, ...) (e)
+
+#define ARGS_NULL_SEQ \
+	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, \
+	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, \
+	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
 
 #include <datashit/Value.h>
 

@@ -21,11 +21,8 @@ extern void* ds_next (void* data, DSNexter nexter, void* metadata);
 
 extern size_t ds_count_ (void* data, DSNexter nexter, void* metadata, DSCounter counter, void* metadata2);
 
-#define ds_count(a, ...) ((ARGS_LENGTH(__VA_ARGS__) == 1) ? \
-	ds_count_(a, (DSNexter) ARGS_FIRST(__VA_ARGS__), NULL, NULL, NULL) : (ARGS_LENGTH(__VA_ARGS__) == 2) ? \
-	ds_count_(a, (DSNexter) ARGS_FIRST(__VA_ARGS__), NULL, (DSCounter) ARGS_SECOND(__VA_ARGS__), NULL) : (ARGS_LENGTH(__VA_ARGS__) == 3) ? \
-	ds_count_(a, (DSNexter) ARGS_FIRST(__VA_ARGS__), (void*) ARGS_SECOND(__VA_ARGS__), (DSCounter) ARGS_THIRD(__VA_ARGS__), NULL) : \
-	ds_count_(a, (DSNexter) ARGS_FIRST(__VA_ARGS__), (void*) ARGS_SECOND(__VA_ARGS__), (DSCounter) ARGS_THIRD(__VA_ARGS__), (void*) ARGS_FOURTH(__VA_ARGS__)))
+#define ds_count(a, ...) \
+	ds_count_(a, (DSNexter) ARGS_FIRST(__VA_ARGS__), (void*) ARGS_SECOND(__VA_ARGS__), (DSCounter) ARGS_THIRD(__VA_ARGS__), (void*) ARGS_FOURTH(__VA_ARGS__))
 
 extern void* ds_each_ (void* data, DSNexter nexter, void* metadata, DSYielder yielder, void* metadata2);
 
