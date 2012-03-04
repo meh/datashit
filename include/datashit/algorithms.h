@@ -33,5 +33,4 @@ extern void* ds_each_ (void* data, DSNexter nexter, void* metadata, DSYielder yi
 	ds_each_(a, (DSNexter) ARGS_FIRST(__VA_ARGS__), (void*) ARGS_SECOND(__VA_ARGS__), (DSYielder) ARGS_THIRD(__VA_ARGS__), NULL) : \
 	ds_each_(a, (DSNexter) ARGS_FIRST(__VA_ARGS__), (void*) ARGS_SECOND(__VA_ARGS__), (DSYielder) ARGS_THIRD(__VA_ARGS__), (void*) ARGS_FOURTH(__VA_ARGS__))))
 
-
 #endif

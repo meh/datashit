@@ -35,7 +35,8 @@ extern DSValue* ds_value_destroyer (DSValue* value, DSValueDestroyer destroyer);
 
 #define ds_const(x) ds_constant((void*) x)
 
-#define ds_value_get(v) (v->pointer)
+static inline void* ds_value_get_ (DSValue* v) { return v->pointer; }
+#define ds_value_get(v) (ds_value_get_(v))
 
 static inline DSValue* ds_value_set_ (DSValue* v, void* x) { v->pointer = x; return v; }
 #define ds_value_set(v, x) (ds_value_set_(v, (void*) x))

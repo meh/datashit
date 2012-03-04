@@ -38,7 +38,7 @@ file "lib#{name}-static.a" => OBJECTS do
 end
 
 task :examples => :default do
-	%w(value count).each {|file|
+	%w(value count list).each {|file|
 		sh "#{CC} #{CFLAGS} examples/#{file}.c -o examples/#{file} -L. -static -l#{name}-static"
 	}
 end

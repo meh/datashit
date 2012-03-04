@@ -67,7 +67,7 @@ ds_value_dereference (DSValue* value)
 {
 	value->references--;
 
-	if (!value->protect) {
+	if (!value->protect && value->references <= 0) {
 		if (value->destroyer) {
 			value->destroyer(value);
 		}
