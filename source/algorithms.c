@@ -23,7 +23,7 @@ ds_count_ (void* data, DSNexter nexter, void* metadata, DSCounter counter, void*
 	void*  current = data;
 
 	do {
-		if (counter(current, metadata2)) {
+		if (counter == NULL || counter(current, metadata2)) {
 			result++;
 		}
 	} while ((current = ds_next(current, nexter, metadata)));
